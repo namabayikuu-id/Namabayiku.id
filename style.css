@@ -1,0 +1,638 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+  overflow: auto;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  min-height: 100dvh; /* setiap section setinggi layar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+/* Slide awal */
+.intro {
+  height: 100vh; /* penuh 1 layar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to top, #93684a, #5bc6f7);
+  color: white;
+  text-align: center;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-image: url("assets/logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+}
+
+/* Tombol Jelajah */
+.start-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color: #93684a;
+  cursor: pointer;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.start-btn:hover {
+  background: #f0f0f0;
+}
+
+.start-btn i {
+  width: 20px;
+  height: 20px;
+  color: #5f2c82;
+}
+
+/* Tombol kontrol musik */
+.music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.music-control:hover {
+  background: rgba(120, 118, 118, 0);
+}
+
+.music-control i {
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0);
+}
+
+/* Sembunyikan dengan class */
+.hidden {
+  display: none;
+}
+
+/* Section berikut */
+#hero {
+  min-height: 100dvh;
+  width: 100%;
+  background-image: url("./assets/trimester1.jpeg"); /* cek path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;         /* biar teks kontras */
+  font-size: 32px;
+  font-weight: bold;
+}
+#hero1 {
+  min-height: 100dvh;
+  width: 100%;
+  background-image: url("./assets/trimester2.jpeg"); /* cek path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;         /* biar teks kontras */
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#hero2 {
+  min-height: 100dvh;
+  width: 100%;
+  background-image: url("./assets/trimester3.jpeg"); /* cek path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;         /* biar teks kontras */
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#hero3 {
+  min-height: 100dvh;
+  width: 100%;
+  background-image: url("./assets/lahir.jpeg"); /* cek path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;         /* biar teks kontras */
+  font-size: 32px;
+  font-weight: bold;
+}
+@media (min-width: 1024px) {
+  #hero, #hero1, #hero2, #hero3 {
+    min-height: 150vh; /* lebih tinggi */
+  }
+}
+
+/* ===== Countdown Section ===== */
+.countdown-container {
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 500px;
+  text-align: center;
+  background: #fff8f4;
+  border: 2px solid #f0d5c2;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(147, 104, 74, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.countdown-container:hover {
+  box-shadow: 0 6px 18px rgba(147, 104, 74, 0.3);
+}
+
+.countdown-container h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #93684a;
+}
+
+#dueDate {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #93684a;
+  outline: none;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  width: 70%;
+  transition: all 0.2s ease;
+}
+
+#dueDate:focus {
+  border-color: #c28b61;
+  box-shadow: 0 0 6px rgba(147, 104, 74, 0.4);
+}
+
+button[onclick="startCountdown()"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #93684a;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+button[onclick="startCountdown()"]:hover {
+  background: #7a5338;
+}
+
+/* Result text */
+#result {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #5a3d2b;
+  line-height: 1.6;
+}
+
+/* Progress Bar */
+.progress {
+  margin-top: 20px;
+  height: 14px;
+  width: 100%;
+  background: #f0e2d8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #f9a56b, #c28b61);
+  border-radius: 8px;
+  transition: width 0.6s ease-in-out;
+}
+.countdown-container .input-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* jarak antar input dan tombol */
+  flex-wrap: wrap; /* biar responsif di layar kecil */
+  margin-top: 10px;
+}
+
+#dueDate {
+  flex: 1;
+  min-width: 180px;
+  max-width: 250px;
+}
+
+button[onclick="startCountdown()"] {
+  flex-shrink: 0;
+}
+.input-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+#dueDate,
+#dueTime {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #93684a;
+  outline: none;
+  font-size: 1rem;
+  min-width: 150px;
+  transition: all 0.2s ease;
+}
+
+#dueDate:focus,
+#dueTime:focus {
+  border-color: #c28b61;
+  box-shadow: 0 0 6px rgba(147, 104, 74, 0.4);
+}
+
+#show-countdown {
+  background: linear-gradient(135deg, #f6d365, #fda085); /* gradasi warna */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#show-countdown span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+#show-countdown:hover {
+  background: linear-gradient(135deg, #fda085, #f6d365);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transform: translateY(-2px); /* sedikit naik saat hover */
+}
+
+#show-countdown:hover span {
+  transform: scale(1.05); /* teks sedikit membesar */
+}
+
+/* ===== Promo Nama Bayi Section ===== */
+/* ===== Promo Nama Bayi Section ===== */
+#promo-nama {
+  background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+  padding: 50px 20px;
+  text-align: center;
+  box-shadow: 0 -6px 12px rgba(0,0,0,0.08);
+  border-radius: 18px;
+}
+
+.promo-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#promo-nama h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #5a4632;
+}
+
+#promo-nama p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.contact-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 -6px 12px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.contact-card h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #5a4632;
+}
+
+/* ===== Contact List ===== */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  
+}
+
+.contact-list li {
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #333;
+}
+
+.contact-list li .iconify {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+/* Brand colors */
+[data-icon="simple-icons:whatsapp"] { color: #25D366; }
+[data-icon="simple-icons:gmail"] { color: #EA4335; }
+[data-icon="simple-icons:instagram"] { color: #E4405F; }
+[data-icon="simple-icons:tiktok"] { color: #000; }
+
+.contact-card a {
+  color: #93684a;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/* ===== CTA Button ===== */
+.cta-btn {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.cta-btn:hover {
+  background: linear-gradient(135deg, #fda085, #f6d365);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* ===== Floating Buttons ===== */
+.promote-control,
+.shop-control,
+.home-control,
+.count-control {
+  position: fixed;
+  right: 20px;
+  background: #f6d365;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.promote-control {
+  bottom: 80px;   /* di atas tombol musik */
+}
+.home-control{
+  bottom: 290px;
+}
+.shop-control{
+  bottom: 220px;
+}
+.count-control {
+  bottom: 150px;  /* di atas tombol musik */
+}
+
+.promote-control:hover,
+.shop-control:hover,
+.home-control:hover,
+.count-control:hover {
+  background: #fda085;
+  transform: translateY(-2px);
+}
+
+.promote-control i,
+.shop-control i,
+.home-control i,
+.count-control i {
+  width: 26px;
+  height: 26px;
+  color: #fff;
+}
+
+/* ===== Responsiveness ===== */
+@media (max-width: 600px) {
+  #promo-nama h2 {
+    font-size: 22px;
+  }
+
+  #promo-nama p {
+    font-size: 14px;
+  }
+
+  .contact-card {
+    font-size: 14px;
+  }
+
+  .cta-btn {
+    width: 100%;
+  }
+}
+
+.countdown-card {
+  background: linear-gradient(135deg, #fffaf5, #ffe9d6);
+  padding: 35px 25px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  margin: 40px auto;
+  max-width: 650px;
+  border: 1px solid #f5d3b3;
+}
+
+.countdown-card h2 {
+  font-size: 24px;
+  color: #5a4632;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.countdown-card p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.countdown-btn {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  border: none;
+  padding: 15px 32px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.countdown-btn:hover {
+  background: linear-gradient(135deg, #fda085, #f6d365);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/*produc design*/
+#shop-affiliate {
+  padding: 40px 20px;
+  background: #fefaf6;
+  text-align: center;
+  display: block; 
+  margin-top: 50px;
+  box-shadow: 0 -6px 12px rgba(0,0,0,0.08);
+}
+
+
+#shop-affiliate h2 {
+  font-size: 26px;
+  color: #5a4632;
+  margin-bottom: 30px;
+  text-align: center; /* judul rata tengah */
+  width: 100%;        /* jangan masuk grid */
+}
+
+.shop-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #f5d3b3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  color: #5a4632;
+  margin-bottom: 8px;
+}
+
+.product-card .price {
+  font-size: 16px;
+  color: #93684a;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.buy-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.buy-btn:hover {
+  background: linear-gradient(135deg, #fda085, #f6d365);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.shop-title {
+  font-size: 26px;
+  color: #5a4632;
+  margin-bottom: 25px;
+}
+
+/* 📱 Responsif */
+@media (max-width: 600px) {
+  .shop-container {
+    grid-template-columns: repeat(2, 1fr); /* jadi 2 kolom di HP */
+    gap: 15px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-card h3 {
+    font-size: 16px;
+  }
+
+  .product-card .price {
+    font-size: 14px;
+  }
+}

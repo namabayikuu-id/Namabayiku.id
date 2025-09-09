@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page dengan Backsound</title>
+  <!-- Lucide Icon -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Intro section -->
+  <section class="intro" id="intro">
+    <div class="logo"></div>
+    <h1>Selamat Datang Moms</h1>
+    <button id="start-btn" class="start-btn">
+      <a href="#hero" style="text-decoration: none; color: #93684a;">
+        <i data-lucide="play"></i>
+        <span>Jelajah</span>
+      </a>
+    </button>
+  </section>
+
+  <!-- Section hero -->
+  <section id="hero">
+    <div style="width: 300px;">
+      <p style="text-align: center;">"Sebuah kehidupan baru telah hadir"</p>
+    </div>
+  </section>
+  <div style="padding: 20px">
+    <h4>Trimester pertama</h4>
+    <p>
+      adalah momen ketika cinta itu mulai tumbuh. Meski belum terlihat, kami tahu engkau hadir, membawa arti baru dalam hidup kami. Inilah awal dari sebuah perjalanan panjang penuh kasih sayang."
+    </p>
+  </div>
+  
+  <section id="hero1">
+    <div style="width: 300px;">
+      <p style="text-align: center;">"Setiap gerakanmu, membuat kami tersenyum"</p>
+    </div>
+  </section>
+  <div style="padding: 20px">
+    <h4>Trimester kedua</h4>
+    <p>
+      adalah masa penuh kebahagiaan, ketika setiap detak dan gerakan kecilmu
+      semakin terasa nyata. Di sinilah ikatan kami denganmu kian erat, setiap doa
+      dan harapan semakin jelas, menyambut hadirmu dengan penuh cinta.
+    </p>
+  </div>
+
+  <section id="hero2">
+    <div style="width: 300px;">
+      <p style="text-align: center;">"Kami siap menyambutmu dengan cinta"</p>
+    </div>
+  </section>
+  <div style="padding: 20px">
+    <h4>Trimester ketiga</h4>
+    <p>
+      adalah penantian penuh harap, saat setiap detik begitu berarti. Meski tubuh
+      mulai lelah, cinta ini justru semakin besar. Kami menantimu dengan doa dan
+      keyakinan, bahwa sebentar lagi dunia akan menyambutmu dengan penuh kasih
+      sayang.
+    </p>
+  </div>
+
+  <section id="hero3">
+    <div style="width: 300px;">
+      <p style="text-align: center;">"Setiap nama adalah doa, mari temukan doa terbaik untuk buah hati anda"</p>
+    </div>
+  </section>
+
+  <!-- Audio -->
+  <audio id="bg-music" loop>
+    <source src="assets/backsound.mp3" type="audio/mpeg">
+  </audio>
+  <!--Home-->
+  <div class="home-control hidden" id="home-control-btn">
+    <a href="#intro" style="text-decoration: none; color: #000;">
+      <i data-lucide="house"></i>
+    </a>
+  </div>
+  <!--shop-->
+  <div class="shop-control hidden" id="shop-control-btn">
+    <a href="#shop-affiliate" style="text-decoration: none; color: #000;">
+      <i data-lucide="shopping-bag"></i>
+    </a>
+  </div>
+  <!--count-->
+  <div class="count-control hidden" id="count-control-btn">
+    <a href="#countdown-card" style="text-decoration: none; color: #000;">
+      <i data-lucide="calendar-clock"></i>
+    </a>
+  </div>
+  <!--Promo Nama-->
+  <div class="promote-control hidden" id="prmote-btn">
+    <a href="#promo-nama" style="text-decoration: none; color: #000;">
+      <i data-lucide="baby"></i>
+    </a>
+  </div>
+  <!-- Kontrol musik -->
+  <div class="music-control hidden" id="music-btn">
+    <i data-lucide="headphone-off"></i>
+  </div>
+
+<div class="countdown-card" id="countdown-card">
+  <h2>Sudah sejauh mana perjalanan menanti si kecil?</h2>
+  <p>
+    Setiap hari yang dilalui penuh dengan doa, harapan, dan rasa syukur.  
+    Perjalanan menanti buah hati memang tidak selalu mudah, tapi setiap detiknya
+    adalah momen berharga yang akan jadi kenangan indah bagi Moms & Dads.  
+    Yuk, hitung bersama berapa lama lagi si kecil akan hadir ke dunia dan 
+    lengkapi kebahagiaan keluarga tercinta 💕
+  </p>
+  <button id="show-countdown" class="countdown-btn">
+    <span>Hitung Mundur Kelahiran</span>
+  </button>
+</div>
+
+
+
+<!-- Section Countdown -->
+<div id="countdown" class="countdown-container hidden">
+  <h3>Hitung Mundur Menuju Kehadiran Si Kecil</h3>
+  <label for="dueDate">Masukkan tanggal & jam perkiraan lahir buah hati Anda:</label>
+  <div class="input-row">
+    <input type="date" id="dueDate" />
+    <input type="time" id="dueTime" placeholder="00:00" />
+    <button onclick="startCountdown()">Lihat Hitung Mundur</button>
+  </div>
+
+  <div id="result"></div>
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
+</div>
+<section id="promo-nama">
+  <div class="promo-container">
+    <h2>Bingung Cari Nama Bayi?</h2>
+    <p>
+      Setiap nama adalah doa. Kami siap membantu Moms & Dads menemukan 
+      nama bayi Islami, modern, unik, dan penuh makna untuk buah hati tercinta.
+    </p>
+
+    <div class="contact-card">
+      <h3>Hubungi Kami</h3>
+      <ul class="contact-list">
+        <li>
+          <span class="iconify" data-icon="simple-icons:whatsapp"></span>
+          <strong>WhatsApp:</strong>
+          <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
+        </li>
+        <li>
+          <span class="iconify" data-icon="simple-icons:gmail"></span>
+          <strong>Email:</strong>
+          <a href="mailto:namabayikuu.id@gmail.com">namabayikuu.id@gmail.com</a>
+        </li>
+        <li>
+          <span class="iconify" data-icon="simple-icons:instagram"></span>
+          <strong>Instagram:</strong>
+          <a href="https://instagram.com/namabayi" target="_blank">@namabayikuu</a>
+        </li>
+        <li>
+          <span class="iconify" data-icon="simple-icons:tiktok"></span>
+          <strong>TikTok:</strong>
+          <a href="https://tiktok.com/@namabayi" target="_blank">@namabayikuu</a>
+        </li>
+      </ul>
+
+      <button class="cta-btn">
+        Konsultasi Sekarang
+      </button>
+    </div>
+  </div>
+</section>
+<section id="shop-affiliate">
+  <h2 class="shop-title">Produk Rekomendasi untuk <br>Moms & Dads</h2>
+  <div class="shop-container">
+    
+    <!-- Produk 1 -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250x250" alt="Nama Produk 1">
+      <h3>Nama Produk 1</h3>
+      <p class="price">Rp 150.000</p>
+      <a href="https://tokopedia.com/link-custom-1" target="_blank" class="buy-btn">
+        Beli Sekarang
+      </a>
+    </div>
+
+    <!-- Produk 2 -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250x250" alt="Nama Produk 2">
+      <h3>Nama Produk 2</h3>
+      <p class="price">Rp 200.000</p>
+      <a href="https://shopee.com/link-custom-2" target="_blank" class="buy-btn">
+        Beli Sekarang
+      </a>
+    </div>
+
+    <!-- Produk 3 -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/250x250" alt="Nama Produk 3">
+      <h3>Nama Produk 3</h3>
+      <p class="price">Rp 99.000</p>
+      <a href="https://lazada.com/link-custom-3" target="_blank" class="buy-btn">
+        Beli Sekarang
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
